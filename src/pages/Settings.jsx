@@ -1,4 +1,5 @@
-import { Save, UserPlus, Shield, Database, BellRing, Globe, Palette, Zap } from 'lucide-react';
+import { Save, UserPlus, Shield, Database, BellRing, Globe, Palette, Zap, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const settingSections = [
   {
@@ -40,12 +41,14 @@ const settingSections = [
 ];
 
 export default function Settings() {
+  const { isDark, toggleTheme } = useTheme();
+
   return (
     <div className="p-6 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-text-primary">系统设置</h2>
-          <p className="text-sm text-text-secondary mt-0.5">PMO Suite Enterprise v3.2.1</p>
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--color-header-text)' }}>系统设置</h2>
+          <p className="text-sm mt-0.5" style={{ color: 'var(--color-header-sub)' }}>PMO Suite Enterprise v3.2.1</p>
         </div>
         <button className="flex items-center gap-2 px-4 py-2.5 bg-sidebar text-white rounded-lg text-sm font-medium hover:bg-sidebar-hover transition-colors">
           <Save size={16} />
@@ -53,22 +56,72 @@ export default function Settings() {
         </button>
       </div>
 
+      {/* ── 主题切换卡片 ── */}
+      <div
+        className="rounded-xl border p-5 transition-all cursor-pointer hover:shadow-sm group"
+        style={{ background: 'var(--color-card)', borderColor: 'var(--color-card-border)' }}
+        onClick={toggleTheme}
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center transition-colors"
+              style={{ background: isDark ? 'rgba(251,191,36,0.1)' : 'rgba(59,130,246,0.1)' }}>
+              {isDark ? <Moon size={24} style={{ color: '#fbbf24' }} /> : <Sun size={24} style={{ color: '#3b82f6' }} />}
+            </div>
+            <div>
+              <h3 className="text-base font-semibold" style={{ color: 'var(--color-section-title)' }}>
+                {isDark ? '暗夜模式' : '白昼模式'}
+              </h3>
+              <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-muted)' }}>
+                {isDark ? '深色科技风界面，适合夜间或专注场景' : '明亮清爽界面，适合日常办公'}
+              </p>
+            </div>
+          </div>
+          <div
+            className="relative w-12 h-7 rounded-full transition-colors duration-300 shrink-0"
+            style={{ background: isDark ? '#1e293b' : '#e5e7eb' }}
+          >
+            <div
+              className="absolute top-0.5 rounded-full w-6 h-6 shadow transition-all duration-300 flex items-center justify-center"
+              style={{
+                left: isDark ? 'calc(100% - 26px)' : '2px',
+                background: isDark ? '#fbbf24' : '#ffffff',
+              }}
+            >
+              {isDark
+                ? <Moon size={12} style={{ color: '#1e293b' }} />
+                : <Sun size={12} style={{ color: '#f59e0b' }} />
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Settings Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {settingSections.map((section, i) => (
-          <div key={i} className="bg-canvas rounded-xl border border-border-subtle p-5 hover:shadow-sm transition-shadow cursor-pointer group">
+          <div key={i}
+            className="rounded-xl border p-5 hover:shadow-sm transition-shadow cursor-pointer group"
+            style={{ background: 'var(--color-card)', borderColor: 'var(--color-card-border)' }}
+          >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                 <section.icon size={20} className="text-accent" />
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-text-primary">{section.title}</h3>
-                <p className="text-xs text-text-muted mt-0.5">{section.desc}</p>
+                <h3 className="text-sm font-semibold" style={{ color: 'var(--color-section-title)' }}>{section.title}</h3>
+                <p className="text-xs" style={{ color: 'var(--color-text-muted)', marginTop: 2 }}>{section.desc}</p>
               </div>
             </div>
             <div className="flex flex-wrap gap-1.5">
               {section.items.map((item, j) => (
-                <span key={j} className="text-xs px-2 py-0.5 rounded-full bg-surface text-text-secondary border border-border-subtle">
+                <span key={j} className="text-xs px-2 py-0.5 rounded-full border"
+                  style={{
+                    background: 'var(--color-surface)',
+                    color: 'var(--color-text-secondary)',
+                    borderColor: 'var(--color-card-border)',
+                  }}
+                >
                   {item}
                 </span>
               ))}
@@ -78,8 +131,8 @@ export default function Settings() {
       </div>
 
       {/* System Info */}
-      <div className="bg-canvas rounded-xl border border-border-subtle p-5">
-        <h3 className="text-sm font-semibold text-text-primary mb-4">系统信息</h3>
+      <div className="rounded-xl border p-5" style={{ background: 'var(--color-card)', borderColor: 'var(--color-card-border)' }}>
+        <h3 className="text-sm font-semibold mb-4" style={{ color: 'var(--color-section-title)' }}>系统信息</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { label: '版本号', value: 'v3.2.1 Enterprise' },
@@ -87,21 +140,21 @@ export default function Settings() {
             { label: '用户席位', value: '500/500 (已满)' },
             { label: '存储使用', value: '286GB / 1TB' },
           ].map((info, i) => (
-            <div key={i} className="p-3 rounded-lg bg-surface">
-              <div className="text-xs text-text-muted mb-1">{info.label}</div>
-              <div className="text-sm font-medium text-text-primary">{info.value}</div>
+            <div key={i} className="p-3 rounded-lg" style={{ background: 'var(--color-surface)' }}>
+              <div className="text-xs mb-1" style={{ color: 'var(--color-text-muted)' }}>{info.label}</div>
+              <div className="text-sm font-medium" style={{ color: 'var(--color-text-primary)' }}>{info.value}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Danger Zone */}
-      <div className="bg-canvas rounded-xl border border-red-200 p-5">
+      <div className="rounded-xl border p-5" style={{ background: 'var(--color-card)', borderColor: 'rgba(239,68,68,0.2)' }}>
         <h3 className="text-sm font-semibold text-danger mb-3">危险区域</h3>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-text-primary">重置所有数据</p>
-            <p className="text-xs text-text-muted mt-0.5">此操作不可撤销，将清除所有项目数据和配置</p>
+            <p className="text-sm" style={{ color: 'var(--color-text-primary)' }}>重置所有数据</p>
+            <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-muted)' }}>此操作不可撤销，将清除所有项目数据和配置</p>
           </div>
           <button className="px-4 py-2 border border-red-200 text-danger text-sm rounded-lg hover:bg-red-50 transition-colors">
             重置数据
