@@ -472,7 +472,7 @@ export default function GRReview() {
             <div className="grid grid-cols-2 gap-3">
               <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100">
                 <div className="flex items-center gap-2 mb-2"><Zap size={14} className="text-emerald-600"/><span className="text-xs font-semibold text-emerald-800">S·优势 Strengths</span></div>
-                <ul className="space-y-1.5 text-[11px] text-text-secondary">
+                <ul className="space-y-1.5 text-xs text-text-secondary">
                   <li>• 核心团队有《原神》级别开放世界开发经验</li>
                   <li>• AI叙事引擎已在外包项目完成POC验证</li>
                   <li>• 美术团队储备充分，已有6个月预研资产</li>
@@ -481,7 +481,7 @@ export default function GRReview() {
               </div>
               <div className="p-4 rounded-xl bg-red-50/50 border border-red-100">
                 <div className="flex items-center gap-2 mb-2"><TrendingDown size={14} className="text-red-600"/><span className="text-xs font-semibold text-red-800">W·劣势 Weaknesses</span></div>
-                <ul className="space-y-1.5 text-[11px] text-text-secondary">
+                <ul className="space-y-1.5 text-xs text-text-secondary">
                   <li>• 团队组建未完成，技术主程岗位空缺3个月</li>
                   <li>• 开放世界MMO品类缺乏完整的商业化经验</li>
                   <li>• 发行渠道关系薄弱，现有合作方规模有限</li>
@@ -490,7 +490,7 @@ export default function GRReview() {
               </div>
               <div className="p-4 rounded-xl bg-blue-50/50 border border-blue-100">
                 <div className="flex items-center gap-2 mb-2"><Compass size={14} className="text-blue-600"/><span className="text-xs font-semibold text-blue-800">O·机会 Opportunities</span></div>
-                <ul className="space-y-1.5 text-[11px] text-text-secondary">
+                <ul className="space-y-1.5 text-xs text-text-secondary">
                   <li>• 国内开放世界MMO赛道尚无TOP3产品，窗口期12-18个月</li>
                   <li>• AI+叙事是当前资本热点，有利于下一轮融资</li>
                   <li>• TikTok渠道买量成本低于传统渠道约30%</li>
@@ -499,7 +499,7 @@ export default function GRReview() {
               </div>
               <div className="p-4 rounded-xl bg-amber-50/50 border border-amber-100">
                 <div className="flex items-center gap-2 mb-2"><Shield size={14} className="text-amber-600"/><span className="text-xs font-semibold text-amber-800">T·威胁 Threats</span></div>
-                <ul className="space-y-1.5 text-[11px] text-text-secondary">
+                <ul className="space-y-1.5 text-xs text-text-secondary">
                   <li>• 网易、米哈游均传闻有同类开放世界项目在研</li>
                   <li>• 版号审批周期不确定，可能延后上线6-12个月</li>
                   <li>• 《鸣潮》《无限暖暖》等竞品已抢占用户心智</li>
@@ -523,15 +523,15 @@ export default function GRReview() {
                 <div key={i} className={'p-3 rounded-xl border ' + (item.risk==='high'?'bg-red-50 border-red-200':'')}>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-semibold text-text-primary">{item.role}</span>
-                    <span className={'text-[11px] font-bold px-2 py-0.5 rounded-full '+(item.score>=80?'bg-emerald-100 text-emerald-700':item.score>=60?'bg-amber-100 text-amber-700':'bg-red-100 text-red-600')}>{item.score}分</span>
+                    <span className={'text-xs font-bold px-2 py-0.5 rounded-full '+(item.score>=80?'bg-emerald-100 text-emerald-700':item.score>=60?'bg-amber-100 text-amber-700':'bg-red-100 text-red-600')}>{item.score}分</span>
                   </div>
                   <div className="w-full h-2 bg-gray-100 rounded-full mb-2 overflow-hidden"><div className={'h-full rounded-full '+(item.score>=80?'bg-emerald-500':item.score>=60?'bg-amber-500':'bg-red-500')} style={{width:item.score+'%'}}/></div>
-                  <p className="text-[10px] text-text-muted leading-relaxed">{item.note}</p>
-                  {item.risk==='high' && <span className="inline-block mt-1.5 text-[9px] px-1.5 py-0.5 rounded bg-red-100 text-red-600 font-medium">⚠ 高风险·建议优先解决</span>}
+                  <p className="text-xs text-text-muted leading-relaxed">{item.note}</p>
+                  {item.risk==='high' && <span className="inline-block mt-1.5 text-xs px-1.5 py-0.5 rounded bg-red-100 text-red-600 font-medium">⚠ 高风险·建议优先解决</span>}
                 </div>
               ))}
             </div>
-            <div className="p-3 rounded-lg bg-purple-50/30 border border-purple-100 text-[11px] text-text-secondary">
+            <div className="p-3 rounded-lg bg-purple-50/30 border border-purple-100 text-xs text-text-secondary">
               <span className="font-semibold text-purple-700">🧠 AI 专家意见：</span>
               团队整体实力中等偏上，但「技术主程空缺」是最大隐患。建议 PRD 批准前必须确认该岗位候选人，或通过外部技术顾问+UE5引擎工程师组合实现降级方案。策划团队在MMO社交生态方面的经验不足，建议引入社交系统顾问。
             </div>
@@ -549,12 +549,12 @@ export default function GRReview() {
                   { name: '腾讯 光子工作室', type: '战术竞技+开放', advantage: 'T2·跟进', color: '#94a3b8', rank: 4, note: '腾讯渠道强势但品类理解不确定' },
                 ].map((c, i) => (
                   <div key={i} className="flex items-center gap-3 p-2.5 rounded-lg bg-surface/50">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-[11px] font-bold shrink-0" style={{backgroundColor:c.color}}>{c.rank}</div>
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0" style={{backgroundColor:c.color}}>{c.rank}</div>
                     <div className="flex-1 min-w-0">
                       <div className="text-xs font-medium text-text-primary truncate">{c.name}</div>
-                      <div className="text-[10px] text-text-muted">{c.type} · {c.advantage}</div>
+                      <div className="text-xs text-text-muted">{c.type} · {c.advantage}</div>
                     </div>
-                    <span className="text-[10px] text-text-muted shrink-0">{c.note.slice(0,8)}...</span>
+                    <span className="text-xs text-text-muted shrink-0">{c.note.slice(0,8)}...</span>
                   </div>
                 ))}
               </div>
@@ -570,15 +570,15 @@ export default function GRReview() {
                   { label: '社区生态', level: '起步阶段', pct: 20, color: '#ef4444' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <span className="text-[11px] text-text-primary w-20 shrink-0">{item.label}</span>
+                    <span className="text-xs text-text-primary w-20 shrink-0">{item.label}</span>
                     <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
                       <div className="h-full rounded-full" style={{width:item.pct+'%', backgroundColor:item.color}}/>
                     </div>
-                    <span className="text-[10px] text-text-muted w-20 text-right">{item.level}</span>
+                    <span className="text-xs text-text-muted w-20 text-right">{item.level}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-4 p-3 rounded-lg bg-accent/5 border border-accent/10 text-[11px] text-text-secondary">
+              <div className="mt-4 p-3 rounded-lg bg-accent/5 border border-accent/10 text-xs text-text-secondary">
                 <span className="font-semibold">🎯 目标排位建议：</span>优先争取「赛道TOP2」，利用AI叙事+美术品质建立差异化壁垒。发行侧建议与至少1家头部渠道建立战略合作，弥补渠道劣势。
               </div>
             </div>
@@ -594,13 +594,13 @@ export default function GRReview() {
                 { label: '泛用户', desc: '15-40岁休闲探索型玩家，被开放世界概念吸引，付费转化需教育', size: '3000万', pct: '25%' },
               ].map((u, i) => (
                 <div key={i} className="p-4 rounded-xl bg-surface/50 border border-border-subtle">
-                  <div className="text-xs font-semibold text-text-primary mb-2">{u.label}<span className="ml-2 text-[10px] text-accent">{u.pct}</span></div>
-                  <p className="text-[10px] text-text-muted leading-relaxed mb-2">{u.desc}</p>
-                  <div className="text-[11px] font-medium text-accent">预估TAM {u.size}</div>
+                  <div className="text-xs font-semibold text-text-primary mb-2">{u.label}<span className="ml-2 text-xs text-accent">{u.pct}</span></div>
+                  <p className="text-xs text-text-muted leading-relaxed mb-2">{u.desc}</p>
+                  <div className="text-xs font-medium text-accent">预估TAM {u.size}</div>
                 </div>
               ))}
             </div>
-            <div className="p-3 rounded-lg bg-emerald-50/30 border border-emerald-100 text-[11px] text-text-secondary">
+            <div className="p-3 rounded-lg bg-emerald-50/30 border border-emerald-100 text-xs text-text-secondary">
               <span className="font-semibold text-emerald-700">📊 市场机会判断：</span>
               开放世界+MMO双品类交叉用户基数约1.15亿，3%转化率即有345万DAU。当前品类TOP3产品月流水均超5亿，参考竞品模型预估首年流水12-18亿。但需注意：用户获取成本可能随竞品入局快速攀升，建议前期集中资源打透核心圈层。
             </div>
@@ -625,15 +625,15 @@ export default function GRReview() {
                 { label: 'ARPPU(月)', value: '¥128', note: '付费用户月均', color: '#3b82f6' },
               ].map((item, i) => (
                 <div key={i} className="p-3 rounded-xl bg-surface/60 border border-border-subtle text-center">
-                  <div className="text-[10px] text-text-muted mb-1">{item.label}</div>
+                  <div className="text-xs text-text-muted mb-1">{item.label}</div>
                   <div className="text-lg font-bold" style={{color:item.color}}>{item.value}</div>
-                  <div className="text-[9px] text-text-muted">{item.note}</div>
+                  <div className="text-xs text-text-muted">{item.note}</div>
                 </div>
               ))}
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div>
-                <p className="text-[11px] text-text-muted mb-2">月度流水预测（万元）</p>
+                <p className="text-xs text-text-muted mb-2">月度流水预测（万元）</p>
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={[
                     { 月:'M1', 流水:3500, 成本:4200 }, { 月:'M2', 流水:5200, 成本:3500 },
@@ -654,7 +654,7 @@ export default function GRReview() {
                 </ResponsiveContainer>
               </div>
               <div>
-                <p className="text-[11px] text-text-muted mb-2">用户留存曲线预测</p>
+                <p className="text-xs text-text-muted mb-2">用户留存曲线预测</p>
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={[
                     { 天:'D1', 留存率:42 }, { 天:'D3', 留存率:30 }, { 天:'D7', 留存率:22 },
@@ -670,7 +670,7 @@ export default function GRReview() {
                 </ResponsiveContainer>
               </div>
             </div>
-            <div className="mt-3 p-3 rounded-lg bg-amber-50/30 border border-amber-100 text-[11px] text-text-secondary">
+            <div className="mt-3 p-3 rounded-lg bg-amber-50/30 border border-amber-100 text-xs text-text-secondary">
               <span className="font-semibold text-amber-700">⚠ 预测局限性：</span>
               以上数据基于品类均值+已上线竞品表现外推，实际偏差±30%。核心变量包括：版号获批时间、竞品入局节奏、买量渠道政策变化。建议每季更新模型。
             </div>
@@ -680,7 +680,7 @@ export default function GRReview() {
           <div className="bg-canvas rounded-xl border border-border-subtle p-5">
             <h3 className="text-sm font-semibold text-text-primary mb-4 flex items-center gap-2"><Cpu size={16} className="text-accent"/>对标产品数据与情况分析</h3>
             <div className="overflow-x-auto">
-              <table className="w-full text-[11px] border-collapse">
+              <table className="w-full text-xs border-collapse">
                 <thead>
                   <tr className="border-b border-border-subtle text-text-muted">
                     <th className="text-left py-2 pr-3">产品</th>
@@ -709,13 +709,13 @@ export default function GRReview() {
                       <td className="py-2 pr-3 text-right text-text-primary">{r.retain}</td>
                       <td className="py-2 pr-3 text-right text-text-muted">{r.cpa}</td>
                       <td className="py-2 pr-3 text-right text-text-muted">{r.payback}</td>
-                      <td className="py-2 pr-3 text-text-secondary"><span className="text-[10px] text-text-muted">{r.insight}</span></td>
+                      <td className="py-2 pr-3 text-text-secondary"><span className="text-xs text-text-muted">{r.insight}</span></td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <div className="mt-4 p-3 rounded-lg bg-accent/5 border border-accent/10 text-[11px] text-text-secondary">
+            <div className="mt-4 p-3 rounded-lg bg-accent/5 border border-accent/10 text-xs text-text-secondary">
               <span className="font-semibold">📊 对标结论：</span>
               本产品(代号·星辰)应参考「原神」的内容驱动+「逆水寒手游」的社交体系，避免「幻塔」内容迭代过慢的陷阱。预计首月流水6-8亿，DAU目标300-450万，首月留存需达40%+。买量策略建议首月集中投放¥5000万撬动自然量，后续靠内容+社区驱动降低获客成本。
             </div>
@@ -749,7 +749,7 @@ export default function GRReview() {
               <button onClick={() => setScoringMode('detail')}
                 className={'px-4 py-2 text-xs font-medium transition-colors ' + (scoringMode === 'detail' ? 'bg-sidebar text-white' : 'text-text-secondary hover:text-text-primary')}>📋 详情</button>
             </div>
-            <span className="text-[11px] text-text-muted">{scoringMode === 'detail' ? 'AI模型选分 · 人员分布' : '图表可视化总览'}</span>
+            <span className="text-xs text-text-muted">{scoringMode === 'detail' ? 'AI模型选分 · 人员分布' : '图表可视化总览'}</span>
           </div>
 
           {/* Dual score banner (shared) */}
@@ -800,7 +800,7 @@ export default function GRReview() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <div className="bg-canvas rounded-xl border border-border-subtle p-5">
                 <h3 className="text-sm font-semibold text-text-primary mb-2">AI vs 人为 · 雷达图对比</h3>
-                <p className="text-[11px] text-text-muted mb-3">紫色=AI · 绿色=人为均值</p>
+                <p className="text-xs text-text-muted mb-3">紫色=AI · 绿色=人为均值</p>
                 <ResponsiveContainer width="100%" height={340}>
                   <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="75%">
                     <PolarGrid stroke="#e5e7eb" />
@@ -821,10 +821,10 @@ export default function GRReview() {
                       <div className="flex items-center gap-2 mb-1.5">
                         {React.createElement(dimensions[i].icon, { size:14, className:'text-purple-500' })}
                         <span className="text-sm font-medium text-text-primary flex-1 truncate">{s.dimension}</span>
-                        <span className="text-[11px] text-text-muted">{dimensions[i].weight}%</span>
+                        <span className="text-xs text-text-muted">{dimensions[i].weight}%</span>
                       </div>
-                      <div className="flex items-center gap-2 mb-0.5"><span className="text-[10px] text-purple-500 w-5 text-right">AI</span><div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden"><div className="h-full rounded-full bg-purple-500" style={{width: (s.ai/5*100)+'%'}}/></div><span className="text-[11px] font-bold text-purple-600 w-8 text-right">{s.ai.toFixed(1)}</span></div>
-                      <div className="flex items-center gap-2"><span className="text-[10px] text-emerald-500 w-5 text-right">人</span><div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden"><div className="h-full rounded-full bg-emerald-500" style={{width: (s.human/5*100)+'%'}}/></div><span className="text-[11px] font-bold text-emerald-600 w-8 text-right">{s.human.toFixed(1)}</span></div>
+                      <div className="flex items-center gap-2 mb-0.5"><span className="text-xs text-purple-500 w-5 text-right">AI</span><div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden"><div className="h-full rounded-full bg-purple-500" style={{width: (s.ai/5*100)+'%'}}/></div><span className="text-xs font-bold text-purple-600 w-8 text-right">{s.ai.toFixed(1)}</span></div>
+                      <div className="flex items-center gap-2"><span className="text-xs text-emerald-500 w-5 text-right">人</span><div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden"><div className="h-full rounded-full bg-emerald-500" style={{width: (s.human/5*100)+'%'}}/></div><span className="text-xs font-bold text-emerald-600 w-8 text-right">{s.human.toFixed(1)}</span></div>
                     </div>))}
                 </div>
               </div>
@@ -859,13 +859,13 @@ export default function GRReview() {
                       </div>
                       <div className="flex-1">
                         <h3 className="text-sm font-semibold text-text-primary">{dim.dimension}</h3>
-                        <p className="text-[11px] text-text-muted">权重 {dim.weight}% · 综合评分 {((scores[di].ai + scores[di].human)/2).toFixed(1)}</p>
+                        <p className="text-xs text-text-muted">权重 {dim.weight}% · 综合评分 {((scores[di].ai + scores[di].human)/2).toFixed(1)}</p>
                       </div>
                     </div>
 
                     {/* AI model picks — 6 models, 3-column grid */}
                     <div className="mb-3">
-                      <div className="flex items-center gap-1 mb-2 text-text-muted text-[11px]">
+                      <div className="flex items-center gap-1 mb-2 text-text-muted text-xs">
                         <span className="w-2 h-2 rounded-full bg-gray-300 inline-block"/>各AI模型评分选择
                       </div>
                       <div className="grid grid-cols-3 md:grid-cols-6 gap-1.5">
@@ -874,10 +874,10 @@ export default function GRReview() {
                           const opt = dim.options[score - 1];
                           return (
                             <div key={m.key} className="p-2 rounded-lg bg-surface/80 border border-border-subtle text-center hover:shadow-sm transition-shadow" title={m.name + ': ' + score + '分·' + opt.label + ' — ' + opt.summary}>
-                              <div className="w-5 h-5 rounded mx-auto mb-1 flex items-center justify-center text-white text-[9px] font-bold" style={{ backgroundColor: m.color }}>{m.abbr}</div>
-                              <div className="text-[10px] text-text-secondary">{m.name}</div>
-                              <div className="text-[11px] font-bold text-text-primary mt-0.5">{score}分</div>
-                              <div className="text-[9px] text-text-muted truncate max-w-[80px] mx-auto" title={opt.label}>{opt.label}</div>
+                              <div className="w-5 h-5 rounded mx-auto mb-1 flex items-center justify-center text-white text-xs font-bold" style={{ backgroundColor: m.color }}>{m.abbr}</div>
+                              <div className="text-xs text-text-secondary">{m.name}</div>
+                              <div className="text-xs font-bold text-text-primary mt-0.5">{score}分</div>
+                              <div className="text-xs text-text-muted truncate max-w-[80px] mx-auto" title={opt.label}>{opt.label}</div>
                             </div>
                           );
                         })}
@@ -885,12 +885,12 @@ export default function GRReview() {
                     </div>
 
                     {/* Option reference table */}
-                    <div className="mb-3 text-[11px]">
+                    <div className="mb-3 text-xs">
                       <div className="flex items-center gap-1 mb-2 text-text-muted">
                         <span className="w-2 h-2 rounded-full bg-gray-300 inline-block"/>选项参照表（满分 5 分 · 彩色标记=模型选择）
                       </div>
                       <div className="overflow-x-auto">
-                        <table className="w-full text-[11px] border-collapse">
+                        <table className="w-full text-xs border-collapse">
                           <thead>
                             <tr className="border-b border-border-subtle text-text-muted">
                               <th className="text-left py-1.5 pr-2 w-12">分值</th>
@@ -932,10 +932,10 @@ export default function GRReview() {
                       </div>
                       <div className="space-y-1">
                         {dim.humanDist.map((count, hi) => (
-                          <div key={hi} className="flex items-center gap-2 text-[11px]">
+                          <div key={hi} className="flex items-center gap-2 text-xs">
                             <span className="w-12 text-right text-text-muted shrink-0">{dim.options[hi].score}分 {dim.options[hi].label}</span>
                             <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
-                              <div className="h-full rounded-full bg-emerald-500 flex items-center justify-end pr-1.5 text-[9px] text-white font-medium transition-all"
+                              <div className="h-full rounded-full bg-emerald-500 flex items-center justify-end pr-1.5 text-xs text-white font-medium transition-all"
                                 style={{ width: 'calc(' + count + '/' + totalHuman + '*100%)' }}>
                                 {count >= 2 ? count : ''}
                               </div>
@@ -961,7 +961,7 @@ export default function GRReview() {
                   return (<div key={d.name} className="p-3 rounded-lg bg-surface/60 border border-border-subtle">
                     <div className="text-xs font-semibold text-text-primary mb-2">{d.name}</div>
                     <div className="space-y-1">{entries.map(([k, v]) => { const isAi = k.startsWith('AI');
-                      return (<div key={k} className="flex items-center gap-2 text-[11px]"><span className={'w-14 shrink-0 '+(isAi?'text-purple-500':'text-emerald-500')}>{k.replace(/^(AI|人)·/,'')}</span><div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden"><div className={'h-full rounded-full '+(isAi?'bg-purple-400':'bg-emerald-400')} style={{width: (v/5*100)+'%'}}/></div><span className={'w-6 text-right font-medium '+(isAi?'text-purple-600':'text-emerald-600')}>{v}</span></div>);})}</div>
+                      return (<div key={k} className="flex items-center gap-2 text-xs"><span className={'w-14 shrink-0 '+(isAi?'text-purple-500':'text-emerald-500')}>{k.replace(/^(AI|人)·/,'')}</span><div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden"><div className={'h-full rounded-full '+(isAi?'bg-purple-400':'bg-emerald-400')} style={{width: (v/5*100)+'%'}}/></div><span className={'w-6 text-right font-medium '+(isAi?'text-purple-600':'text-emerald-600')}>{v}</span></div>);})}</div>
                   </div>);
                 })}
               </div>
@@ -976,7 +976,7 @@ export default function GRReview() {
             </button>
             {distributionOpen && (
               <div className="mt-5 pt-4 border-t border-border-subtle">
-                <p className="text-[11px] text-text-muted mb-4">{humanRespondents}位评委各题选项分布 · 数据源自飞书Base评审问卷</p>
+                <p className="text-xs text-text-muted mb-4">{humanRespondents}位评委各题选项分布 · 数据源自飞书Base评审问卷</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {questionDistribution.map((q) => (
                   <div key={q.question} className="bg-surface/50 rounded-xl border border-border-subtle p-4">
