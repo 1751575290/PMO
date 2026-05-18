@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import React from 'react';
 import {
@@ -283,7 +283,7 @@ export default function GRReview() {
   const allRequiredDone = missingRequired.length === 0;
 
   return (
-    <div className="p-6 space-y-5 max-w-5xl mx-auto">
+    <div className="p-6 space-y-5 ">
       <button onClick={() => navigate(`/projects/${projectId}`)} className="flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary transition-colors">
         <ArrowLeft size={16} /> 返回项目详情
       </button>
